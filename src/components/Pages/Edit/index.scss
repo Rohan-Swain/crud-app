@@ -1,0 +1,113 @@
+#editPage {
+    display: flex;
+    flex-direction: column;
+
+    #heading {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        letter-spacing: 0.6em;
+        padding: 1em;
+        position: relative;
+    }
+
+    #heading::after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        background: linear-gradient(to right, white, aqua, white);
+        width: 50%;
+        height: 0.5em;
+        bottom: 30%;
+    }
+
+    #calenderData {
+        margin: 2em;
+        display: flex;
+
+        #day-date {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 1.8em;
+            height: 1.8em;
+            border-radius: 25%;
+            box-shadow: 0px 0px 10px lightgray;
+            font-size: 2em;
+
+            #day {
+                position: absolute;
+                top: 0;
+                font-size: small;
+                color: red;
+            }
+
+            #date {
+                margin-top: 0.2em;
+            }
+        }
+
+        #month, #year {
+            margin-left: 0.3em;
+            height: 1.5em;
+            font-size: 2em;
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+
+    #dataField {
+        margin: 2em 2em 0em 2em;
+        resize: none;
+        min-height: 52vh;
+        line-height: 1.4em;
+        font-size: 1em;
+        border: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    #buttonDiv {
+        margin: 1em 2em;
+        height: 2em;
+        display: flex;
+        justify-content: space-around;
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45%;
+            border: none;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .btn-discard {
+            color: red;
+            box-shadow: 0px 0px 10px red, 0px 0px 10px rgba(red, 0.5) inset;
+
+            &:focus {
+                background-color: red;
+                color: white;
+                box-shadow: 0px 0px 10px red;
+            }
+        }
+
+        .btn-save {
+            color: #1573ff;
+            box-shadow: 0px 0px 10px #1573ff, 0px 0px 10px rgba(#1573ff, 0.5) inset;
+
+            &:focus {
+                background-color: #1573ff;
+                color: white;
+                box-shadow: 0px 0px 10px #1573ff;
+            }
+        }
+    }
+}

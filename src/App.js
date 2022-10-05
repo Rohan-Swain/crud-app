@@ -1,38 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Form from './components/Form';
-import TodoList from './components/TodoList';
+import React, { useState } from "react";
+import "./App.scss";
+import Edit from "./components/Pages/Edit";
+import Home from "./components/Pages/Home";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { v4 as uuidV4 } from "uuid";
+import View from "./components/Pages/View";
 
 function App() {
-  const initialState = JSON.parse(localStorage.getItem('tasks')) || [];
-  const [input, setInput] = useState('');
-  const [tasks, setTasks] = useState(initialState);
-  const [editTask, setEditTask] = useState(null);
+  const [entryArr, setEntryArr] = useState([]);
+  const [view, setView] = useState(null);
 
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+  const handleSave = (entry, date) => {
+    setEntryArr([...entryArr, { id: uuidV4(), entry: entry, date: date }]);
+  };
+
+  const getViewId = (id) => {
+    setView(entryArr.filter((item) => id === item.id));
+  };
+
+  const handleDelete = () => {
+    setEntryArr(entryArr.filter((item) => view[0].id !== item.id));
+    setView(null);
+  };
+
+  const handleUpdate = (id, entry) => {
+    const newData = entryArr.map((item) => {
+      if (item.id === id) {
+        return { ...item, entry: entry };
+      }
+      return item;
+    });
+    setEntryArr(newData);
+    setView(null);
+  };
 
   return (
-    <div className='container'>
-      <div className='app-wrapper'>
-        <div>
-          <Header />
+    <div className="container">
+      <div className="app-wrapper">
+        <div id="header">
+          <span>Diary</span>
+          <div id="menu">_</div>
         </div>
-        <div>
-          <Form
-            input = {input}
-            setInput = {setInput}
-            tasks = {tasks}
-            setTasks = {setTasks} 
-            editTask = {editTask}
-            setEditTask = {setEditTask}
-          />
-        </div>
-        <div>
-          <TodoList tasks={tasks} setTasks={setTasks} setEditTask={setEditTask} />
-        </div>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home arr={entryArr} viewId={getViewId} />}
+            />
+            <Route
+              path="/edit"
+              element={
+                <Edit
+                  handleSave={handleSave}
+                  handleUpdate={handleUpdate}
+                  view={view}
+                  setView={setView}
+                />
+              }
+            />
+            <Route
+              path="/view"
+              element={
+                <View
+                  obj={view}
+                  handleDelete={handleDelete}
+                  setView={setView}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
       </div>
     </div>
   );
