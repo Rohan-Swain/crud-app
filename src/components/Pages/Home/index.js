@@ -18,7 +18,9 @@ function Home({ arr, viewId }) {
   };
   return (
     <>
-      <div id="homepage">{arr ? <Homeview /> : "no entries"}</div>
+      <div id="homepage" className={`${arr.length === 0 ? "align" : ""}`}>
+        {arr.length !== 0 ? <Homeview /> : "no entries"}
+      </div>
       <Link to={"/edit"} id={"create"}>
         +
       </Link>

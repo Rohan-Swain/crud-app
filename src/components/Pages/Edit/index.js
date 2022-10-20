@@ -11,8 +11,7 @@ function Edit({ handleSave, handleUpdate, view, setView }) {
     let date = dt.getDate();
     let day = dt.getDay();
     let month = dt.getMonth();
-    let year = dt.getFullYear().toString().split("0");
-    year = eval(year[1]);
+    let year = dt.getFullYear().toString().slice(2);
     return { day, date, month, year };
   };
 
