@@ -45,7 +45,7 @@ function App() {
         <div id="header">
           <span>Diary</span>
         </div>
-        <HashRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route
               path="/"
