@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Edit from "./components/Pages/Edit";
 import Home from "./components/Pages/Home";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 import { v4 as uuidV4 } from "uuid";
 import View from "./components/Pages/View";
 
@@ -45,7 +45,7 @@ function App() {
         <div id="header">
           <span>Diary</span>
         </div>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route
               path="/"
@@ -73,7 +73,7 @@ function App() {
               }
             />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </div>
   );
