@@ -20,10 +20,14 @@ function Edit({ handleSave, handleUpdate, view, setView }) {
   };
 
   const onSave = () => {
-    if (view === null) {
-      handleSave(textAreaData, DayAndDate());
+    if (textAreaData !== "") {
+      if (view === null) {
+        handleSave(textAreaData, DayAndDate());
+      } else {
+        handleUpdate(view[0].id, textAreaData);
+      }
     } else {
-      handleUpdate(view[0].id, textAreaData);
+      alert("Text area was empty!");
     }
   };
 
