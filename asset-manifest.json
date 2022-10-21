@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Rohan-Swain/crud-app/static/css/main.a231e5b4.css",
-    "main.js": "/Rohan-Swain/crud-app/static/js/main.84d02833.js",
+    "main.js": "/Rohan-Swain/crud-app/static/js/main.b9f290c4.js",
     "index.html": "/Rohan-Swain/crud-app/index.html",
     "main.a231e5b4.css.map": "/Rohan-Swain/crud-app/static/css/main.a231e5b4.css.map",
-    "main.84d02833.js.map": "/Rohan-Swain/crud-app/static/js/main.84d02833.js.map"
+    "main.b9f290c4.js.map": "/Rohan-Swain/crud-app/static/js/main.b9f290c4.js.map"
   },
   "entrypoints": [
     "static/css/main.a231e5b4.css",
-    "static/js/main.84d02833.js"
+    "static/js/main.b9f290c4.js"
   ]
 }
