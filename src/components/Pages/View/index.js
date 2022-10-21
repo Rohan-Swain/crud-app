@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 import ArrayObj from "../../ArrayObj";
+import CalenderData from "../../CalenderData";
 
 function View({ obj, handleDelete, setView }) {
   return (
@@ -10,14 +11,12 @@ function View({ obj, handleDelete, setView }) {
         <Link to={"/"} className="back-button" onClick={() => setView(null)}>
           {"<"}
         </Link>
-        <div id="calenderData">
-          <div id="day-date">
-            <span id="day">{ArrayObj().dayArr[obj[0].date.day]}</span>
-            <span id="date">{obj[0].date.date}</span>
-          </div>
-          <span id="month">{ArrayObj().monthArr[obj[0].date.month]},</span>
-          <span id="year">{obj[0].date.year}</span>
-        </div>
+        <CalenderData
+          day={ArrayObj().dayArr[obj[0].date.day]}
+          date={obj[0].date.date}
+          month={ArrayObj().monthArr[obj[0].date.month]}
+          year={obj[0].date.year}
+        />
       </div>
       <textarea id="dataField" type={"text"} value={obj[0].entry} readOnly />
       <div id="buttonDiv">

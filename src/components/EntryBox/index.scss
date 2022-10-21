@@ -41,7 +41,7 @@
         z-index: -1;
         border-radius: 5px;
 
-        #month {
+        #view_month {
             margin-left: 2.8em;
             color: white;
             font-size: 2em !important;
@@ -75,11 +75,29 @@
 .evenMonthIndex {
     justify-content: flex-end !important;
 
-    #month {
+    #view_month {
         margin-right: 2.8em;
     }
 }
 
 .evenDisplayIndex {
     left: 5%;
+}
+
+@media (max-width: 360px) {
+    #displayEntry {
+        display: none;
+    }
+}
+
+@media (min-width: 700px) {
+    #view_month {
+        margin-left: 4em !important;
+    }
+
+    .evenMonthIndex {
+        #view_month {
+            margin-right: 4em !important;
+        }
+    }
 }

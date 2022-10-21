@@ -18,14 +18,14 @@ function EntryBox({ arrIndex, id, date, entry, viewId }) {
           id="value"
           className={`${arrIndex % 2 !== 0 ? "evenMonthIndex" : ""}`}
         >
-          <span id="month">{ArrayObj().monthArr[date.month]}</span>
+          <span id="view_month">{ArrayObj().monthArr[date.month]}</span>
         </div>
-        <div
+        <span
           id="displayEntry"
           className={`${arrIndex % 2 !== 0 ? "evenDisplayIndex" : ""}`}
         >
           {entry}
-        </div>
+        </span>
       </Link>
     </div>
   );

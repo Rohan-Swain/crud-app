@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Edit from "./components/Pages/Edit";
 import Home from "./components/Pages/Home";
@@ -7,8 +7,13 @@ import { v4 as uuidV4 } from "uuid";
 import View from "./components/Pages/View";
 
 function App() {
-  const [entryArr, setEntryArr] = useState([]);
+  const initialState = JSON.parse(localStorage.getItem("entries")) || [];
+  const [entryArr, setEntryArr] = useState(initialState);
   const [view, setView] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("entries", JSON.stringify(entryArr));
+  }, [entryArr]);
 
   const handleSave = (entry, date) => {
     setEntryArr([...entryArr, { id: uuidV4(), entry: entry, date: date }]);
@@ -39,7 +44,6 @@ function App() {
       <div className="app-wrapper">
         <div id="header">
           <span>Diary</span>
-          <div id="menu">_</div>
         </div>
         <BrowserRouter>
           <Routes>
