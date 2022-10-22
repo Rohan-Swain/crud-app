@@ -5,6 +5,7 @@ import ArrayObj from "../../ArrayObj";
 import CalenderData from "../../CalenderData";
 
 function View({ obj, handleDelete, setView }) {
+  window.onerror = () => (window.location.href = "/");
   return (
     <div id="viewpage">
       <div id="headingWrapper">

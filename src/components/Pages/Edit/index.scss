@@ -91,6 +91,12 @@
 
 @media (min-width: 600px) {
     #buttonDiv {
+        width: 70% !important;
+    }
+}
+
+@media (min-width: 1100px) {
+    #buttonDiv {
         width: 50% !important;
     }
 }
